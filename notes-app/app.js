@@ -1,4 +1,3 @@
-const validator = require('validator')
 const yargs = require('yargs')
 const notes = require('./notes.js')
 
@@ -51,6 +50,8 @@ yargs.command({
         }
     },
     handler(argv) {
+        // debug
+        // debugger
         notes.getNote(argv.title)
     }
 })
