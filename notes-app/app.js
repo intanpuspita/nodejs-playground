@@ -50,8 +50,6 @@ yargs.command({
         }
     },
     handler(argv) {
-        // debug
-        // debugger
         notes.getNote(argv.title)
     }
 })

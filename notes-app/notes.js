@@ -15,6 +15,9 @@ const getNote = (title) => {
         return note.title === title
     })
 
+    // debug
+    debugger
+
     if(!selectedNote) {
         console.log(chalk.bgRed('Note not found'))
     } else {
