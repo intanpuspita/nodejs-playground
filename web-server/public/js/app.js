@@ -10,7 +10,7 @@ form.addEventListener('submit', (e) => {
     const location = input.value;
 
     loading.textContent = 'loading...';
-    fetch('http://localhost:3000/weather?address=' + location)
+    fetch('/weather?address=' + location)
     .then((response) => {
         loading.textContent = '';
         response.json().then((data) => {
