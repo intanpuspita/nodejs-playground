@@ -5,13 +5,20 @@
         <title>Weather App</title>
         <link rel="icon" href="/img/logo.png">
         <link rel= "stylesheet" href="/css/style.css">
-        <script src="/js/app.js"></script>
     </head>
     <body>
         <div class="main-content">
             {{>header}}
             <p>Use this site to get your weather!</p>
+            <form>
+                <input type="text" placeholder="Location">
+                <button>Search</button>
+            </form>
+
+            <p id="message"></p>
+            <p id="loading"></p>
         </div>
         {{>footer}}
+        <script src="/js/app.js"></script>
     </body>
 </html>

@@ -1,6 +1,8 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const forecast = require('./utils/forecast')
+const geocode = require('./utils/geocode')
 
 const app = express()
 
@@ -33,11 +35,44 @@ app.get('/help', (req, res) => {
     })
 })
 app.get('/weather', (req, res) => {
-    res.send({
-        location: 'Bandung',
-        forecast: 'Rain'
+    if(!req.query.address) {
+        return res.send({
+            error: 'You must provide an address'
+        });
+    }
+
+    // Get geocode and weather using API
+    geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
+        if(error)
+            return res.send({
+                error
+            });
+        
+        forecast(latitude, longitude, (error, foreCastData) => {
+            if(error)
+                return res.send({
+                    error
+                });
+            
+            res.send({
+                location,
+                forecast: foreCastData
+            })
+        })
     })
 })
+app.get('/products', (req, res) => {
+    if(!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term'
+        })
+    }
+    console.log(req.query);
+    res.send({
+        products: []
+    })
+})
+
 app.get('/help/*', (req, res) => {
     res.render('error', {
         errorMessage: 'Help article not found',

@@ -40,3 +40,16 @@ h1 {
 .portrait {
     width: 20%;
 }
+
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid rgb(156, 75, 125);
+    background: rgb(156, 75, 125);
+    color: white;
+    padding: 8px;
+}
