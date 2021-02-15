@@ -13,3 +13,9 @@ app.use(taskRouter);
 app.listen(port, () => {
     console.log('Server running on port ' + port);
 });
+
+// const User = require('../models/user');
+// function main(){
+//     user = 
+//     user.populate('tasks').execPopulate();
+// }
