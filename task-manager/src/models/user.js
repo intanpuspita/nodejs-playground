@@ -47,7 +47,8 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
-
+}, {
+    timestamps: true
 });
 
 // virtual property that not save data to db relationship between 2 entity
